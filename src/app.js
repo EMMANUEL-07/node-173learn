@@ -27,23 +27,24 @@ app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Weather',
-        name: 'OYEKAN EMMANUEL'
+        title: 'Make Hay',
+        name: 'EMMANUEL OYEKAN'
     })
 })
 
 app.get('/about', (req, res) => {
     res.render('about', {
-        title: 'About Me',
-        name: 'OYEKAN EMMANUEL'
+        title: 'Info',
+        name: 'EMMANUEL OYEKAN',
+        creator: 'Emmanuel Oyekan'
     })
 })
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        helpText: 'This is some helpful text.',
+        helpText: 'This is meant to be some helpful text. To save reduce stress, we move.',
         title: 'Help',
-        name: 'OYEKAN EMMANUEL'
+        name: 'EMMANUEL OYEKAN'
     })
 })
 
@@ -73,10 +74,6 @@ app.get('/weather', (req, res) => {
         })
     })
     
-    
-
-
-
     /* console.log(req.query.search);
     res.send({
         address: req.query.address,

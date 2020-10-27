@@ -8,7 +8,7 @@ const forecast = (lonn, latt, callback) => {
         lat: latt.toString(),
         lon: lonn.toString(),
         unit_system: 'si',
-        fields: 'temp,humidity,sunset,sunrise',
+        fields: 'temp,sunrise,sunset,weather_code,precipitation_type',
         apikey: 'GcBLkvgkSM7v5Zvu4aK6OX9yCqHyOaxU'
       },
       json: true 
@@ -21,12 +21,13 @@ const forecast = (lonn, latt, callback) => {
       callback(body.message, undefined)
       }else {
         temp = "The temperature currently is "+ body.temp.value + " " + body.temp.units;
-        humid = "Since we are in the evening, the humidity is "+ body.humidity.value + " %";
         sset ="The sun is to set by "+ body.sunset.value;
-        srise = "The sun rose by "+ body.sunrise.value;
-        rem = "Thank you for patronizing us";
+        srise = "The sunrise will be by "+ body.sunrise.value;
+        weather = "The weather today will be " + body.weather_code.value;
+        downpour = "As regards downpour, we can expect "+ body.precipitation_type.value + " for now.";
+        rem = "Thank you for patronizing us, hope this helps in planning your day.";
 
-        data = temp + ". " + humid + ". " + srise + ". " + sset + ". " + rem + ". "
+        data = {temp, weather, downpour, srise, sset, rem }
 
         callback(undefined, data)
   
